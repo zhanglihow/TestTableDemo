@@ -22,7 +22,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
     init {
         orientation = VERTICAL
     }
-
+    //初始化屏幕宽度
     fun initWidth(width: Int) {
         mWidth = width
     }
