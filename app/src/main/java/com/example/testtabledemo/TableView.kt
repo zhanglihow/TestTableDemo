@@ -54,13 +54,13 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
                     }
                     layout.addView(
                         tv,
-                        LayoutParams(LayoutParams(width, maxHeight))
+                        LayoutParams(width, maxHeight)
                     )
                 }
 
                 addView(
                     layout,
-                    LayoutParams(LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
+                    LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                 )
 
             }
@@ -87,17 +87,15 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
                                 }
                                 layout.addView(
                                     tv,
-                                    LayoutParams(LayoutParams(width, maxHeight))
+                                    LayoutParams(width, maxHeight)
                                 )
                             }
                             addView(
                                 layout,
-                                LayoutParams(
                                     LayoutParams(
                                         LayoutParams.MATCH_PARENT,
                                         LayoutParams.WRAP_CONTENT
                                     )
-                                )
                             )
                         }
                         //画第一层和其他层
@@ -118,17 +116,15 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
                                 }
                                 layout.addView(
                                     tv,
-                                    LayoutParams(LayoutParams(width, maxHeight))
+                                    LayoutParams(width, maxHeight)
                                 )
                             }
                             addView(
                                 layout,
-                                LayoutParams(
                                     LayoutParams(
                                         LayoutParams.MATCH_PARENT,
                                         LayoutParams.WRAP_CONTENT
                                     )
-                                )
                             )
                         }
                     }
@@ -159,7 +155,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
             }
         }
         val tv = getTv(maxName)
-        addView(tv, LayoutParams(LayoutParams(width, LayoutParams.WRAP_CONTENT)))
+        addView(tv, LayoutParams(width, LayoutParams.WRAP_CONTENT))
         //有多少行
         val line = tv.paint.measureText(maxName) / width
         removeView(tv)
