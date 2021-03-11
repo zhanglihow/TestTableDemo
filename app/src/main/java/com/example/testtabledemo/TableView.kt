@@ -21,6 +21,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
 
     init {
         orientation = VERTICAL
+        gravity = Gravity.CENTER
     }
     //初始化屏幕宽度
     fun initWidth(width: Int) {
@@ -32,7 +33,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
             return
         }
         //表格宽度
-        val width = mWidth / datas[0].size
+        val width = (mWidth-20) / datas[0].size
 
         when (datas.size) {
             //只有一层表格
