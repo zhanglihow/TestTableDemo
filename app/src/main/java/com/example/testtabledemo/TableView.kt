@@ -64,59 +64,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
                 )
 
             }
-            //只有两层
-            2 -> {
-                //画第一层
-                val layout = LinearLayout(context)
-                layout.orientation = HORIZONTAL
-                layout.gravity = Gravity.CENTER
-
-                val maxHeight = getMaxHeight(datas[0], width)
-
-                val names1 = datas[0]
-                for (index in names1.indices) {
-                    val tv = getTv(names1[index])
-                    if (index == names1.size - 1) {
-                        tv.background = context.getDrawable(R.drawable.shape_top_end)
-                    } else {
-                        tv.background = context.getDrawable(R.drawable.shape_top_start)
-                    }
-                    layout.addView(
-                        tv,
-                        LayoutParams(LayoutParams(width, maxHeight))
-                    )
-                }
-                addView(
-                    layout,
-                    LayoutParams(LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
-                )
-                //画第二层
-                val layout2 = LinearLayout(context)
-                layout2.orientation = HORIZONTAL
-                layout2.gravity = Gravity.CENTER
-
-                val maxHeight2 = getMaxHeight(datas[1], width)
-
-                val name2 = datas[1]
-                for (index in name2.indices) {
-                    val tv = getTv(name2[index])
-                    if (index == name2.size - 1) {
-                        tv.background = context.getDrawable(R.drawable.shape_bottom_end)
-                    } else {
-                        tv.background = context.getDrawable(R.drawable.shape_bottom_start)
-                    }
-                    layout2.addView(
-                        tv,
-                        LayoutParams(LayoutParams(width, maxHeight2))
-                    )
-                }
-
-                addView(
-                    layout2,
-                    LayoutParams(LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
-                )
-            }
-            //三层以上
+            //两层以上
             else -> {
                 for (indexData in datas.indices) {
                     when (indexData) {
