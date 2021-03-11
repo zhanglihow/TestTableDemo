@@ -28,7 +28,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
     }
 
     fun addTables(vararg datas: List<String>) {
-        if (datas.isEmpty() || mWidth==0) {
+        if (datas.isEmpty() || mWidth == 0) {
             return
         }
         //表格宽度
@@ -41,7 +41,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
                 layout.orientation = HORIZONTAL
                 layout.gravity = Gravity.CENTER
 
-                val maxHeight = getMaxHeight(datas[0],width)
+                val maxHeight = getMaxHeight(datas[0], width)
 
                 val names = datas[0]
                 for (index in names.indices) {
@@ -70,7 +70,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
                 layout.orientation = HORIZONTAL
                 layout.gravity = Gravity.CENTER
 
-                val maxHeight = getMaxHeight(datas[0],width)
+                val maxHeight = getMaxHeight(datas[0], width)
 
                 val names1 = datas[0]
                 for (index in names1.indices) {
@@ -94,7 +94,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
                 layout2.orientation = HORIZONTAL
                 layout2.gravity = Gravity.CENTER
 
-                val maxHeight2 = getMaxHeight(datas[1],width)
+                val maxHeight2 = getMaxHeight(datas[1], width)
 
                 val name2 = datas[1]
                 for (index in name2.indices) {
@@ -121,7 +121,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
                     when (indexData) {
                         //画最后层
                         datas.size - 1 -> {
-                            val maxHeight = getMaxHeight(datas[indexData],width)
+                            val maxHeight = getMaxHeight(datas[indexData], width)
 
                             val layout = LinearLayout(context)
                             layout.orientation = HORIZONTAL
@@ -153,7 +153,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
                         }
                         //画第一层和其他层
                         else -> {
-                            val maxHeight = getMaxHeight(datas[indexData],width)
+                            val maxHeight = getMaxHeight(datas[indexData], width)
 
                             val layout = LinearLayout(context)
                             layout.orientation = HORIZONTAL
@@ -193,7 +193,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
      */
     private fun getTv(str: String): TextView {
         val textView = SDAdaptiveTextView(context)
-        textView.post {  textView.setAdaptiveText(str) }
+        textView.post { textView.setAdaptiveText(str) }
         textView.setTextColor(context.getColor(R.color.black))
         textView.gravity = Gravity.CENTER
         return textView
@@ -202,7 +202,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
     /**
      * 获取最高的高度
      */
-    private fun getMaxHeight(names: List<String>,width:Int): Int {
+    private fun getMaxHeight(names: List<String>, width: Int): Int {
         var maxName = ""
         for (name in names) {
             if (name.length > maxName.length) {
@@ -215,7 +215,12 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
         val line = tv.paint.measureText(maxName) / width
         removeView(tv)
 
-        return 35 * ceil(line).toInt()
+        return sp2px(context,25f) * ceil(line).toInt()
+    }
+
+    private fun sp2px(context: Context, spValue: Float) :Int{
+        val fontScale = context.resources.displayMetrics.scaledDensity;
+        return (spValue * fontScale + 0.5f).toInt()
     }
 
 }

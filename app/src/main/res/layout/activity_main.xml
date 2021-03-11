@@ -13,4 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <com.example.testtabledemo.TableView
+        android:id="@+id/table_layout2"
+        app:layout_constraintTop_toBottomOf="@+id/table_layout"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.example.testtabledemo.TableView
+        android:id="@+id/table_layout3"
+        app:layout_constraintTop_toBottomOf="@+id/table_layout2"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        table_layout.initWidth(getWindowWidth(this))
         val names1= mutableListOf<String>()
         val names2= mutableListOf<String>()
         val names3= mutableListOf<String>()
@@ -32,7 +31,15 @@ class MainActivity : AppCompatActivity() {
         names3.add("她好")
         names3.add("它123123好")
         names3.add("好111")
-        table_layout.addTables(names3,names1)
+
+        table_layout.initWidth(getWindowWidth(this))
+        table_layout.addTables(names1)
+
+        table_layout2.initWidth(getWindowWidth(this))
+        table_layout2.addTables(names3,names1)
+
+        table_layout3.initWidth(getWindowWidth(this))
+        table_layout3.addTables(names1,names2,names3,names1)
     }
 
 
