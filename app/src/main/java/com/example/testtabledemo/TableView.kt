@@ -1,7 +1,6 @@
 package com.example.testtabledemo
 
 import android.content.Context
-import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.LinearLayout
@@ -32,6 +31,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
         if (datas.isEmpty() || mWidth == 0) {
             return
         }
+        removeAllViews()
         //表格宽度
         val width = (mWidth-20) / datas[0].size
 
@@ -137,8 +137,8 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
      * 统一处理TextView
      */
     private fun getTv(str: String): TextView {
-        val textView = SDAdaptiveTextView(context)
-        textView.post { textView.setAdaptiveText(str) }
+        val textView = AutoSplitTextView(context)
+        textView.text = str
         textView.setTextColor(context.getColor(R.color.black))
         textView.gravity = Gravity.CENTER
         return textView
@@ -150,7 +150,7 @@ class TableView(context: Context, attrs: AttributeSet) : LinearLayout(context, a
     private fun getMaxHeight(names: List<String>, width: Int): Int {
         var maxName = ""
         for (name in names) {
-            if (name.length > maxName.length) {
+            if (name.toByteArray().size > maxName.toByteArray().size) {
                 maxName = name
             }
         }
